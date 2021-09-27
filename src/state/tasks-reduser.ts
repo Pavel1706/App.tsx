@@ -3,15 +3,16 @@ import {TaskType} from "../Todolist";
 import { v1 } from "uuid";
 
 
-
 export type TasksStateType = {
     [key: string]: Array<TaskType>
 }
 
+const initialState: TasksStateType = {}
+
 type TasksType = RemoveTasksACType | AddTaskACType
     | ChangeStatusTaskACType | ChangeTitleTaskACType | AddTodolistACType | RemoveTodolistACType
 
-export const tasksReducer = (state: TasksStateType, action: TasksType ) :TasksStateType=> {
+export const tasksReducer = (state: TasksStateType = initialState, action: TasksType ) :TasksStateType=> {
     switch (action.type) {
         case "REMOVE-TASK": {
             let stateCopy = {...state};
@@ -59,7 +60,7 @@ export const tasksReducer = (state: TasksStateType, action: TasksType ) :TasksSt
             return stateCopy
         }
         default:
-            throw new Error('bye bye')
+            return state
     }
 
 }

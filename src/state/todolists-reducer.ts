@@ -38,7 +38,7 @@ export const todolistsReducer = (state:Array<TodolistType>, action: tsarType) :A
 
 type tsarType = RemoveTodolistACType | AddTodolistACType | ChangeTodolistACType |ChangeFilterTodolistACType
 
-export type RemoveTodolistACType=ReturnType<typeof RemoveTodolistAC>
+
 
 export const RemoveTodolistAC =(todolistId1:string) =>{
     return{
@@ -50,6 +50,7 @@ export const RemoveTodolistAC =(todolistId1:string) =>{
 export type AddTodolistACType = ReturnType<typeof AddTodolistAC>
 export type ChangeTodolistACType = ReturnType<typeof ChangeNameTodolistAC>
 export type ChangeFilterTodolistACType = ReturnType<typeof ChangeFilterTodolistAC>
+export type RemoveTodolistACType=ReturnType<typeof RemoveTodolistAC>
 
 export const AddTodolistAC =(title:string)=>({ type: 'ADD-TODOLIST', title:title, todolistId: v1()}as const)
 export const ChangeNameTodolistAC =(title:string,id:string)=>({ type: 'CHANGE-TODOLIST-TITLE', id:id, title:title}as const)
