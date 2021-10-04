@@ -1,18 +1,20 @@
 import { v1 } from "uuid";
-import {FilterValuesType, TodolistType} from "../App";
+import {FilterValuesType, TodolistType } from "../AppWithRedux";
 
 
 
+const initialState : Array<TodolistType> = []
 
 
-export const todolistsReducer = (state:Array<TodolistType>, action: tsarType) :Array<TodolistType> => {
+export const todolistsReducer = (state: Array<TodolistType>=initialState, action: tsarType) :Array<TodolistType> => {
+   debugger
     switch (action.type) {
         case 'REMOVE-TODOLIST':
             let copyState = [...state]
             return copyState.filter(t => t.id !== action.id)
         case 'ADD-TODOLIST': {
             let copestate = [...state]
-            return [...copestate, {id: action.todolistId, title: action.title, filter: "all"}]
+            return [{id: action.todolistId, title: action.title, filter: "all"}, ...copestate]
         }
         case "CHANGE-TODOLIST-TITLE": {
             let todolist = state.find(t => t.id === action.id)
@@ -29,7 +31,7 @@ export const todolistsReducer = (state:Array<TodolistType>, action: tsarType) :A
             return [...state]
         }
         default:
-            throw new Error('I don`t understand ')
+            return state
     }
 }
 
