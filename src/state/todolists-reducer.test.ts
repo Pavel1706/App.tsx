@@ -62,6 +62,7 @@ test('correct todolist should change its name', () => {
 
     expect(endState[1].title).toBe("What to buy");
     expect(endState[0].title).toBe(newTodolistTitle);
+    expect(endState.length).toBe(2)
 });
 
 test('correct filter of todolist should be changed', () => {
