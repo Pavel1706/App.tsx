@@ -17,7 +17,7 @@ export const todolistsReducer = (state: Array<TodolistType> = initialState, acti
         case "CHANGE-TODOLIST-TITLE": {
             debugger
             let stateCopy = [...state]
-           let todolist = stateCopy.find(t => t.id === action.id ? {...t, title:action.title}:t)
+           let todolist = stateCopy.find(t => t.id === action.id )
 
             if (todolist){
                todolist.title=action.title
