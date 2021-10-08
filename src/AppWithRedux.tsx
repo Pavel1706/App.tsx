@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {TaskType, Todolist} from './Todolist';
+import { Todolist} from './Todolist';
 import {AddItemForm} from './AddItemForm';
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
@@ -13,6 +13,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import {AppRootState} from "./state/store";
 import { useCallback } from 'react';
+import {GetTodolists} from "./API/todolists-api";
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -71,6 +72,7 @@ function AppWithRedux() {
 
                             return <Grid item>
                                 <Paper style={{padding: "10px"}}>
+                                    <GetTodolists/>
                                     <Todolist
                                         key={tl.id}
                                         id={tl.id}
