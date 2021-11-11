@@ -77,7 +77,6 @@ export const Login = () => {
                 <FormGroup>
                     <TextField label="Email"
                                margin="normal"
-                               // name={'email'}
                                {...formik.getFieldProps("email")}
                                value={formik.values.email}
                                onChange={formik.handleChange}
