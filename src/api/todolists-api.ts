@@ -4,13 +4,14 @@ const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
     withCredentials: true,
     headers: {
-        'API-KEY': '8f2534e2-22a4-4052-894e-a66c04807482'
+        'API-KEY': 'fae6bcdf-1b7b-4b5f-8f9c-eecd7cb26aa8'
     }
 })
 
 // api
 export const todolistsAPI = {
     getTodolists() {
+        debugger
         return instance.get<TodolistType[]>('todo-lists');
     },
     createTodolist(title: string) {
